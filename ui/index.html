@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>URL-Shortener</title>
+</head>
+<body>
+<h1>URL-Shortener</h1>
+URL to shorten:<input type="text" name="textbox" class="textbox">
+<input type="submit" id="sendId" name="send" value="Shorten!">
+<div id="result"><br></div>
+<br>
+More information on this project can be found <a href="https://github.com/laupski/url-shortener">here</a>.
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script>
+    $(document).on("click","#sendId", function() {
+        var url = $(".textbox").val();
+        $.post("/api/shorten",{link:url},function(data){
+            $("#result").html(data);
+        });
+    });
+</script>
+</body>
+</html>
