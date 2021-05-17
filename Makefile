@@ -20,5 +20,5 @@ etcd-server:
 	docker run -d --name etcd-server --network app-tier --publish 2379:2379 --publish 2380:2380 --env ALLOW_NONE_AUTHENTICATION=yes --env ETCD_ADVERTISE_CLIENT_URLS=http://etcd-server:2379 bitnami/etcd:latest
 
 web-app:
-	docker build . -t laupski/url-shortener
-	docker run -d --name url-shortener --network app-tier --publish 8000:8000 laupski/url-shortener
+	docker build . -t url-shortener
+	docker run -d --name url-shortener --network app-tier --publish 8000:8000 url-shortener
